@@ -22,3 +22,19 @@ function listening(){
     console.log("server running"); 
     console.log(`running on localhost: ${port}`);
 }
+
+// Post Cart Route
+let cartItems=[];
+app.post('/postCard',setCartItem);
+function setCartItem(req,res) {
+    cartItems=req.body.addetToCart;
+    // console.log(cartItems);
+}
+
+// Callback function to complete GET '/sendcart'
+
+app.get('/getCart',function (req,res) {
+    let cart={cartItems};
+    // console.log(cart);
+    res.send(cart);
+  });
