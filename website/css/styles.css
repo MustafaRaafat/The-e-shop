@@ -1,0 +1,86 @@
+/* * {
+    /* box-sizing: border-box; */
+/* }  */
+
+/* .menu {
+    width: 25%;
+    float: left;
+} */
+
+/* .main {
+    width: 75%;
+    float: left;
+} */
+
+.container {
+    /* set display position here */
+    display: grid;
+    width: 100%;
+    height: 100%;
+    /* grid-template-columns: 3fr 1fr ; */
+    grid-template-rows: minmax(10px,auto);
+    /* grid-auto-rows: minmax(100px, 200px); */
+    grid-template-areas: "top top top top" 
+    "center center center center"
+    "butoon butoon butoon butoon";
+    border: 2px solid yellow;
+
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+    justify-content: center;
+    /*row only*/
+    align-items: center;
+    /*column only*/
+}
+  .header{
+    /* height: 150px; */
+    grid-area: top;
+}
+.main{
+    grid-area: butoon;
+}
+.sidebar{
+    grid-area: righ;
+} 
+.footer{
+    grid-area: ds;
+} 
+.image{
+    width: 100px;
+    height: 100px;
+}
+/* 
+  .container{
+  width: 200px;
+  display:flex;
+  flex-wrap:wrap;
+  border: 5px solid black
+}
+
+.box{
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: sans-serif;
+}
+
+.red{
+  background-color: red;
+}
+
+.green{
+  background-color: green;
+}
+
+.yellow{
+  background-color: yellow;
+}
+  */
