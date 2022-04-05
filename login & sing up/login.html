@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shop login</title>
+    <link rel="stylesheet" href="./style login.css">
+</head>
+<body>
+    <div class="container">
+        <form action="" class="form--body">
+            <p class="form--text">Member Login</p>
+
+            <p  class="form--massage form--error" ></p>
+
+            <input type="text" class="form--input"id="username/email"autofocus placeholder="Email or Username">
+            <input type="password"  id="password" class="form--input1"autofocus placeholder="Password">
+            
+            <label for="asd">
+            <input type="checkbox" onclick="showPassowrd()" id="asd" >Show Password
+              </label>
+            <p class="form--massage form--error"></p>
+
+            <button class="form--button"> LOGIN </button>
+
+            <label for="as">
+                <input type="checkbox" id="as"> Remember me 
+            </label>
+            <a href="forgetpassword.html" class="form--forget"> Forget password?</a>
+
+                <p class="form--dont">Don't have an account? </p>
+            <a href="singup.html"class="asd" > <p class="form--createaccount">Create Account</p> </a>
+
+        </form>
+    </div>
+    <script src="./server login.js"></script>
+
+</body>
+</html>
