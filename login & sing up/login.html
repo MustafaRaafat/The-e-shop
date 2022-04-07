@@ -9,20 +9,22 @@
 </head>
 <body>
     <div class="container">
-        <form  class="form--body col">
+        <form  class="form--body col" id="form">
             <p class="form--text">Member Login</p>
 
-            <p  class="form--massage form--error" ></p>
+            <p  class="form--massage form--error" id="username-error"> </p>
 
-            <input type="text" class="form--input"id="username/email"autofocus required placeholder="Email or Username">
-            <input type="password"  id="password" class="form--input1"autofocus required placeholder="Password">
-            
+            <input type="text" class="form--input" id="username" autofocus required placeholder="Username">
+            <input type="password" id="userpassword"  class="form--input1 myInput"   autofocus  placeholder="Password">
+
+            <p  class="form--massage form--error" id="password-error"> </p>
+
+
             <label for="asd">
-            <input type="checkbox" onclick="showPassowrd()" id="asd" >Show Password
-              </label>
-            <p class="form--massage form--error"></p>
+                <input type="checkbox" onclick="showPassowrd()" id="asd" >Show Password
+                  </label>  
 
-            <button class="form--button"> LOGIN </button>
+            <button class="form--button" id="button" type="submit"> LOGIN </button>
 
             <label for="as">
                 <input type="checkbox" id="as"> Remember me 
