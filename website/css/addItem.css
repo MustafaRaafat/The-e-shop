@@ -1,0 +1,74 @@
+body {
+    margin-top: 20px;
+    color: dimgray;
+    font-family: "Roboto", serif;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "left right"
+        "buttom buttom";
+    width: 100%;
+    height: 100%;
+    background: whitesmoke;
+    border-radius: 5px;
+    margin: 10px;
+}
+
+@media only screen and (max-width: 700px) {
+
+    /* For mobile phones: */
+    [class*="container"] {
+        width: 100%;
+        display: flex;
+        padding: 5%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: whitesmoke;
+        border-radius: 5px;
+    }
+}
+
+.card {}
+
+.left {
+
+    grid-area: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    grid-area: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttom {
+    grid-area: buttom;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-control {
+    border: 2px solid #596280;
+    border-radius: 12px;
+    font-size: .825rem;
+    background: white;
+    margin: 5px;
+    color: #bcd0f7;
+}
+#description{
+    min-height: 100px;
+}
+#title,#category,#price{
+    min-height: 30px;
+}
