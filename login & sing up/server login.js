@@ -10,23 +10,25 @@ function showPassowrd() {
 
 
 const loginform = document.querySelector("#form")
-const username = document.getElementById('username');
+const email = document.getElementById('email');
 const userpassword = document.getElementById('userpassword');
-let userNameError= document.getElementById('username-error');
+let emailError= document.getElementById('email-error');
 let userPwdError= document.getElementById('password-error');
 
 // validation function for login page
 
 loginform.addEventListener('submit', (e)=>{
 
-  if(username.value===""){
-    e.preventDefault()
-    userNameError.innerText="username must to be field"
-  } 
-  else if(username.value.length <= 4 ||username.value.length >= 20){
-    e.preventDefault()
-    userNameError.innerText="username must to between 5 and 20 characters"
-  } 
+  emailError.innerText=""
+  userPwdError.innerText=""
+//email validation 
+let VEmail=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(email.value.match(VEmail)) {
+  emailError.innerText=""
+}else{
+  e.preventDefault()
+  emailError.innerText="Invalid email address"
+  }
 
   if(userpassword.value===""){
     e.preventDefault()
