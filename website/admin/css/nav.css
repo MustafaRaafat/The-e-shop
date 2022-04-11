@@ -22,7 +22,7 @@
 }
 
 .main-right {
-  width: calc(100% - 240px);
+  width: calc(100% - 15rem);
   position: absolute;
   right: 0;
   top: 0;
@@ -36,7 +36,7 @@
 }
 
 .add-hide {
-  width: 240px;
+  width: 15rem;
   -webkit-transition: width 0.2s ease-in-out;
   transition: width 0.2s ease-in-out;
   position: fixed;
@@ -46,8 +46,7 @@
 }
 
 .hide {
-  top: 0;
-  left: -240px;
+  width: 0rem;
 }
 
 .nav-left {
@@ -202,10 +201,6 @@
           align-items: center;
   padding: 0;
   width: 100%;
-}
-
-.modal-backdrop.show {
-  z-index: 999999 !important;
 }
 
 .nav-top .left .form,
@@ -381,13 +376,13 @@
 /* Start Media */
 @media (max-width: 992px) {
   .add-hide {
-    left: -240px;
+    width: 0rem;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
   }
 
   .hide {
-    left: 0;
+    width: 15rem;
     z-index: 9999999;
   }
 

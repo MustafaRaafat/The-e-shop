@@ -6,25 +6,6 @@
   font-family: 'Roboto', sans-serif;
 }
 
-
-
-.sa-app {
-  --sa-footer-visible-height: 0rem;
-  --sa-sidebar-shown: 1;
-  --sa-sidebar-width: 15rem;
-  --sa-sidebar-actual-width:
-      calc(var(--sa-sidebar-width)*var(--sa-sidebar-shown));
-      
-  --sa-sticky-height: 3.25rem;
-  --sa-toolbar-height: 3.25rem;
-  --sa-toolbar-visible-height: 3.25rem;
-  display: flex;
-  min-height: 100%;
-}
-
-
-
-
 // Container Page
 .nav-main {
   height: 100%;
@@ -34,7 +15,7 @@
   flex-wrap: nowrap;
 }
 .main-right {
-  width: calc(100% - 240px);
+  width: calc(100% - 15rem);
   position: absolute;
   right: 0;
   top: 0;
@@ -45,7 +26,7 @@
   width: 100%;
 }
 .add-hide {
-  width: 240px;
+  width: 15rem;
   transition: width .2s ease-in-out;
   position: fixed;
   top: 0;
@@ -53,8 +34,7 @@
   min-height: 100vh;
 }
 .hide {
-  top: 0;
-  left: -240px;
+  width: 0rem;
 }
 .nav-left {
   background-color: #3d464d;
@@ -170,9 +150,6 @@
   align-items: center;
   padding: 0;
   width: 100%;
-}
-.modal-backdrop.show {
-  z-index: 999999 !important;
 }
 .nav-top .left .form,
 .nav-top .left .form form {
@@ -304,11 +281,11 @@
 /* Start Media */
 @media (max-width: 992px) {
   .add-hide {
-    left: -240px;
+    width: 0rem;
     transition: all 0.3s ease;
   }
   .hide {
-    left: 0;
+    width: 15rem;
     z-index: 9999999;
   }
 .main-right {
