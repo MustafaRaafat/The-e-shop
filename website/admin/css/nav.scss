@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
+.sa-app {
+  --sa-footer-visible-height: 0rem;
+  --sa-sidebar-shown: 1;
+  --sa-sidebar-width: 15rem;
+  --sa-sidebar-actual-width:
+      calc(var(--sa-sidebar-width)*var(--sa-sidebar-shown));
+      
+  --sa-sticky-height: 3.25rem;
+  --sa-toolbar-height: 3.25rem;
+  --sa-toolbar-visible-height: 3.25rem;
+  display: flex;
+  min-height: 100%;
+}
+
+
+
+
+// Container Page
+.nav-main {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.main-right {
+  width: calc(100% - 240px);
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.3s ease;
+}
+/* Start Side Bar */
+.main-width {
+  width: 100%;
+}
+.add-hide {
+  width: 240px;
+  transition: width .2s ease-in-out;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+}
+.hide {
+  top: 0;
+  left: -240px;
+}
+.nav-left {
+  background-color: #3d464d;
+  height: 100vh;
+  width: 100%;
+}
+.sa-nav__section-title {
+  color: #8fa7b2;
+  font-size: .6875rem;
+  font-weight: 500;
+  line-height: .6875rem;
+  padding: 1.5rem 1rem 0.5rem 26px;
+  text-transform: uppercase;
+}
+.container-list {
+  position: relative;
+}
+.nav-left .nav-title ul {
+  display: none;
+  transition: 0.3s ease;
+}
+.open {
+  display: block !important;
+}
+.nav-left .nav-link,
+.nav-left .nav-title ul a {
+  display: block;
+  color: #fff;
+  width: 100%;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nav-left .nav-link {
+  margin: 0;
+  padding: 0.3rem 0 0.3rem 22px;
+  position: relative;
+}
+.nav-left .nav-link:hover,
+.nav-left .nav-title ul li:hover {
+  background-color: #495057;
+}
+.nav-left .nav-title ul a {
+  padding: 0.3rem 0 0.3rem 50px;
+  list-style: none;
+  width: 100%;
+  margin: 0 !important;
+}
+.nav-left .nav-link span {
+  margin: 0 4px;
+}
+.nav-left .nav-link span a,
+.nav-left .nav-title ul a {
+  color: #fff;
+  text-decoration: none;
+}
+.nav-left .nav-link .nav-arrow {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8fa7b2;
+  font-size: .6875rem;
+  font-weight: 500;
+}
+.nav-left .logo {
+  background-color: #ffd333;
+  display: flex;
+  padding: 0 2.5rem;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+}
+.nav-left .logo img {
+  width: 70%;
+}
+.simplebar-content-wrapper::-webkit-scrollbar {
+  background-color: #3d464d;
+  width: 8px;
+}
+.simplebar-content-wrapper::-webkit-scrollbar-thumb {
+  background-color: #6c757d;
+  border-radius: 10px;
+  display: none;
+  height: 50%;
+}
+.nav-left:hover .simplebar-content-wrapper::-webkit-scrollbar-thumb {
+  display: block;
+}
+.simplebar-content-wrapper::-webkit-scrollbar-track {
+  margin-top: 5px;
+}
+.simplebar-content-wrapper {
+  overflow: hidden scroll;
+  width: 100%;
+  height: 90%;
+}
+/* End Side Bar */
+
+/* Start Nav Bar */
+.nav-top {
+  height: 52px;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 0 .5rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-top .left {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  width: 100%;
+}
+.modal-backdrop.show {
+  z-index: 999999 !important;
+}
+.nav-top .left .form,
+.nav-top .left .form form {
+  width: 100%;
+}
+.overflow p,
+.overflow h4 {
+  padding: 0;
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+}
+.nav-top .left .form .search-div {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  position: fixed;
+  top: 57px;
+  width: 520px;
+  min-height: 86px;
+  color: #000;
+  padding: 1rem 0;
+  margin: 0;
+  border: 1px solid #636B70;  
+}
+.nav-top .left .form input {
+  background-color: #ebedf0;
+  border-radius: 0;
+  width: 50%;
+  height: 36px;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  transition: width .35s ease-in-out;
+}
+.nav-top .left .form input:focus {
+  background-color: #fff;
+  width: 520px;
+  border: 1px solid #636B70;
+}
+.nav-top .left .toggle-icon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+  color: #6c757d;
+}
+.nav-top .right {
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.nav-top .right,
+.nav-top .right .account {
+  display: flex;
+  align-items: center;
+}
+.nav-top .right .img {
+  width: 3rem;
+}
+.nav-top .right i {
+  font-size: 1.1rem;
+  position: relative;
+}
+.nav-top .right i::after {
+  content: "3";
+  font-size: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  font-weight: 900;
+  background-color: #ffd333;
+  border-radius: 50%;
+  top: -2px;
+  right: -2px;
+}
+.nav-top .right .account {
+  padding: .5rem;
+  transition: 0.3s ease;
+  justify-content: center;
+  cursor: pointer;
+  width: 200px;
+  height: 52px;
+}
+.nav-top .right .account img {
+  width: 35px;
+  height: 35px;
+  border-radius: 4px;
+}
+.nav-top .right .account span {
+  display: block;
+  padding-left: .3rem;
+  font-size: .7rem;
+}
+.nav-top .right .account span:first-child {
+  font-weight: 900;
+}
+.nav-top .left .toggle-icon,
+.nav-top .right .img,
+.nav-top .right i {
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: 0.3s ease;
+}
+.nav-top .left .toggle-icon,
+.nav-top .right .img,
+.nav-top .right i {
+  border-radius: 3px;
+}
+.nav-top .left .toggle-icon:hover,
+.nav-top .right .img:hover,
+.nav-top .right i:hover,
+.nav-top .right .account:hover {
+  background-color: #ebedf0;
+}
+/* End Nav Bar */
+
+/* Start main section */
+  .main {
+    background-color: #f5f7fa;
+    min-height: 91vh;
+    width: 100%;
+    padding-top: 2rem;
+  }
+/* End main section */
+
+/* Start Media */
+@media (max-width: 992px) {
+  .add-hide {
+    left: -240px;
+    transition: all 0.3s ease;
+  }
+  .hide {
+    left: 0;
+    z-index: 9999999;
+  }
+.main-right {
+  width: 100%;
+}
+}
+@media (max-width: 768px) {
+  .nav-top .right .account span {
+    display: none;
+  }
+  .nav-top .right .account {
+    width: 60px;
+  }
+}
