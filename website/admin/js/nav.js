@@ -15,6 +15,8 @@ const searchNav = document.querySelector(".nav-top .left .form input");
 const searchDiv = document.querySelector(".nav-top .left .form .search-div");
 // Side Bar Link Pages
 const linkPages = document.querySelectorAll(".nav-left .nav-title");
+// Side Bar Link Nav Arrow
+const navArrow = document.querySelectorAll(".nav-left .nav-link .nav-arrow");
 // Side Bar Menu Pages
 const menuPages = document.querySelectorAll(".nav-left .nav-title ul");
 // Side Bar Menu Container
@@ -69,6 +71,9 @@ function openMenu() {
         if(link.id === men.id) {
           men.classList.toggle("open");
         }
+      }
+      if(link.firstElementChild.lastElementChild.className.includes("nav-arrow")) {
+        link.firstElementChild.lastElementChild.classList.toggle("arrow");
       }
     });
   }

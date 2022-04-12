@@ -100,6 +100,10 @@
   font-size: .6875rem;
   font-weight: 500;
 }
+.nav-left .nav-link .nav-arrow.arrow {
+  transform: rotate(-90deg);
+  top: 25%;
+}
 .nav-left .logo {
   background-color: #ffd333;
   display: flex;
@@ -154,6 +158,18 @@
 .nav-top .left .form,
 .nav-top .left .form form {
   width: 100%;
+  position: relative;
+}
+.nav-top .left .form form::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-37%);
+  left: 10px;
+  width: 25px;
+  height: 25px;
+  background: url("../images/icons8-search-30.png") no-repeat;
+  background-size: 70%;
 }
 .nav-top .left .form .search-div {
   display: none;
@@ -161,9 +177,9 @@
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  position: fixed;
-  top: 57px;
-  width: 520px;
+  position: absolute;
+  top: 40px;
+  width: 100%;
   min-height: 86px;
   color: #000;
   padding: 1rem 0;
@@ -173,16 +189,16 @@
 .nav-top .left .form input {
   background-color: #ebedf0;
   border-radius: 0;
-  width: 50%;
+  width: 70%;
   height: 36px;
   border: none;
   outline: none;
-  padding: 1rem;
+  padding: 1rem 2rem;
   transition: width .35s ease-in-out;
 }
 .nav-top .left .form input:focus {
   background-color: #fff;
-  width: 520px;
+  width: 100%;
   border: 1px solid #636B70;
 }
 .nav-top .left .toggle-icon {
