@@ -155,12 +155,6 @@
 .nav-top .left .form form {
   width: 100%;
 }
-.overflow p,
-.overflow h4 {
-  padding: 0;
-  margin: 0.5rem 0 0 0;
-  font-size: 1rem;
-}
 .nav-top .left .form .search-div {
   display: none;
   flex-direction: column;
@@ -248,6 +242,20 @@
 }
 .nav-top .right .account span:first-child {
   font-weight: 900;
+}
+.nav-top .right .list-account {
+  display: none;
+  top: 52px;
+  position: absolute;
+  right: 0;
+  width: 200px;
+  transition: 0.3s ease;
+}
+.nav-top .right .list-account.show {
+  display: block;
+}
+.nav-top .right .list-account ul {
+  list-style: none;
 }
 .nav-top .left .toggle-icon,
 .nav-top .right .img,

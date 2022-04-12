@@ -5,6 +5,10 @@ const sideBar = document.querySelector(".add-hide");
 const toggleButton = document.querySelector(".toggle-icon");
 // Main Right
 const mainRight = document.querySelector(".main-right");
+// Nav Bar Account
+const account = document.querySelector(".nav-top .right .account");
+// Nav Bar List Account
+const listAccount = document.querySelector(".nav-top .right .list-account");
 // Input Nav Bar Search
 const searchNav = document.querySelector(".nav-top .left .form input");
 // Search Div
@@ -17,6 +21,34 @@ const menuPages = document.querySelectorAll(".nav-left .nav-title ul");
 const menuContainer = document.querySelector(".simplebar-content-wrapper");
 // Meida Quaries
 const max992 = window.matchMedia("(max-width: 992px)");
+
+// Stop Propagation
+function stopPropagation(i) {
+  i.onclick = function(e) {
+    e.stopPropagation();
+  }
+}
+
+// Close Items On Click Of Window
+function toggleOnClick(i) {
+  document.addEventListener("click", (e) => {
+    if(e.target !== i && i.className.includes("show")){
+      i.classList.toggle("show");
+    }
+  });
+}
+
+// Toggle Items On Click Of Item
+function toggleList(e, i) {
+  e.addEventListener("click", () => {
+    i.classList.toggle("show");
+  });
+  stopPropagation(e)
+  toggleOnClick(i)
+}
+
+// Toggle List Account
+toggleList(account, listAccount);
 
 // Hide Sidebar When Window Resize
 window.addEventListener("resize", () => {
@@ -74,13 +106,9 @@ function clickToHideSideBar() {
     }
     });
     // Stop Propagation On Menu Container
-    menuContainer.onclick = function (e) {
-    e.stopPropagation();
-  }
+    stopPropagation(menuContainer)
   }
   clickToHideSideBar();
-  
-
 
 // Search Nav
   searchNav.addEventListener("focus", () => {
@@ -96,6 +124,4 @@ function clickToHideSideBar() {
     });
 
   // Stop Propagation On Search Div
-  searchDiv.onclick = function (e) {
-    e.stopPropagation();
-  }
+    stopPropagation(searchDiv)
