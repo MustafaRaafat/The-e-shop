@@ -1,25 +1,25 @@
 let productList = ["hh", "gg", "uu", "rr", "rr"]; //dummy data
 let addetToCart = [];
 // Accordion 
-function myAccFunc() {
-    var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
+// function myAccFunc() {
+//     var x = document.getElementById("myTopnav");
+//   if (x.className === "topnav") {
+//     x.className += " responsive";
+//   } else {
+//     x.className = "topnav";
+//   }
+// }
 
 // Open and close sidebar
-function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-}
+// function w3_open() {
+//     document.getElementById("mySidebar").style.display = "block";
+//     document.getElementById("myOverlay").style.display = "block";
+// }
 
-function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-}
+// function w3_close() {
+//     document.getElementById("mySidebar").style.display = "none";
+//     document.getElementById("myOverlay").style.display = "none";
+// }
 
 /* Function to POST data */
 const postCart = async (url = '', data = {}) => {
@@ -55,9 +55,10 @@ const getCart = async (url = '') => {
 
 getCart("/getCart");
 
-const productlength = document.querySelector('#Product');
+const productlength = document.querySelector('#ProductNum');
 productlength.innerHTML = "<p>" + productList.length + " items</p>";
-const ProductGrid = document.querySelector('.w3-grayscale');
+const ProductGrid = document.querySelector('.pro');
+// ProductGrid.classList.toggle('w3-row w3-grayscale');
 productList.forEach(element => {  //set home items
     const basketProduct = document.createElement('div');
     basketProduct.classList.add('w3-col', 'l3', 's6');
@@ -68,6 +69,7 @@ productList.forEach(element => {  //set home items
         + "<button class=\"w3-button w3-black\" onclick=\"addNewItem()\" type=\"button\" id=\"addButton\">Buy now <i class=\"fa fa-shopping-cart\"></i></button></div></div>"
         + "<p>car<br><b>$19.99</b></p>";
     basketProduct.appendChild(container);
+    ProductGrid.classList.add('w3-row', 'w3-grayscale');
     ProductGrid.appendChild(basketProduct);
 });
 function addNewItem() {
