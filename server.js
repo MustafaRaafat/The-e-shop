@@ -18,23 +18,35 @@ app.use(express.static('website'));
 
 const port = 8000;
 const server = app.listen(port, listening);
-function listening(){
-    console.log("server running"); 
+function listening() {
+    console.log("server running");
     console.log(`running on localhost: ${port}`);
 }
 
 // Post Cart Route
-let cartItems=[];
-app.post('/postCard',setCartItem);
-function setCartItem(req,res) {
-    cartItems=req.body.addetToCart;
+let cartItems = [];
+app.post('/postCard', setCartItem);
+function setCartItem(req, res) {
+    cartItems = req.body.addetToCart;
     // console.log(cartItems);
 }
 
 // Callback function to complete GET '/sendcart'
 
-app.get('/getCart',function (req,res) {
-    let cart={cartItems};
+app.get('/getCart', function (req, res) {
+    let cart = { cartItems };
     // console.log(cart);
     res.send(cart);
-  });
+});
+
+app.post('/singup', function (req, res) {
+    console.log(req.body);
+    console.log('done =>');
+    ss("j");
+})
+
+
+/*function POST to Add new product */
+function ss(s) {
+   
+}
