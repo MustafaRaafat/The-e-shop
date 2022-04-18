@@ -14,7 +14,7 @@ function showPassowrd() {
   }
 }
 
-const button=document.querySelector('button');
+const button = document.querySelector('button');
 const modal = document.getElementById("myModal");
 const span = document.getElementsByClassName("close")[0];
 const singupform = document.querySelector("#form")
@@ -31,12 +31,12 @@ const userpasswordError = document.getElementById('password-error');
 const userpassword2Error = document.getElementById('password2-error');
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
-span.onclick = function() {
+span.onclick = function () {
   modal.style.display = "none";
 }
 
@@ -52,23 +52,23 @@ singupform.addEventListener('submit', (e) => {
 
   //first name validation 
 
-  if (firstname.value.length <= 3 || firstname.value.length >= 7) {
+  if (firstname.value.length <= 3 || firstname.value.length >= 19) {
     e.preventDefault()
-    firstnameError.innerText = "first name must to between 4 and 8 characters"
+    firstnameError.innerText = "first name must to between 4 and 20 characters"
   }
 
   //last name validation 
 
-  if (lastname.value.length <= 3 || lastname.value.length >= 7) {
+  if (lastname.value.length <= 3 || lastname.value.length >= 19) {
     e.preventDefault()
-    lastnameError.innerText = "last name must to between 4 and 8 characters"
+    lastnameError.innerText = "last name must to between 4 and 20 characters"
   }
 
   //password validation 
 
-  if (userpassword.value.length <= 4 || userpassword.value.length >= 20) {
+  if (userpassword.value.length <= 7 || userpassword.value.length >= 20) {
     e.preventDefault()
-    userpasswordError.innerText = "password must to between 5 and 20 characters"
+    userpasswordError.innerText = "password must to between 8 and 20 characters"
   }
 
   //password confirmation validation 
@@ -96,42 +96,31 @@ singupform.addEventListener('submit', (e) => {
 })
 
 
-singupform.addEventListener('submit', (e)=>{
-  button.innerHTML='<i class="fa fa-spinner fa-spin"></i>';
+singupform.addEventListener('submit', (e) => {
+  button.innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
 
-  if(emailError.innerText == "" && firstnameError.innerText == "" &&lastnameError.innerText == ""
-  &&userpasswordError.innerText == "" &&  userpassword2Error.innerText == ""
-  ){
-let s={firstname:firstname.value,lastname:lastname.value,email:email.value,userpassword:userpassword.value};
+  if (emailError.innerText == "" && firstnameError.innerText == "" && lastnameError.innerText == ""
+    && userpasswordError.innerText == "" && userpassword2Error.innerText == ""
+  ) {
+    let s = { firstName: firstname.value, lastName: lastname.value, email: email.value, password: userpassword.value };
 
-    sendData(s);
-    
-    
+    postUser(s);
+
+
   }
-  
+
   e.preventDefault();
 });
 
-var formdata;
 /*send user data */
 function sendData(ew) {
-  formdata = new FormData();
-  formdata.append("firstName", ew.firstname);
-  formdata.append("lastName", ew.lastname);
-  formdata.append("email", ew.email);
-  formdata.append("password", ew.userpassword);
-  
-  var requestOptions = {
-    method: 'POST',
-    body: formdata,
-    redirect: 'follow'
-  };
+
   fetch("https://e-commerce-04-2022.herokuapp.com/api/user/signup", requestOptions)
     .then(response => {
-      if (response.status==422) {
-        modal.innerHTML="<div class=\"modal-content\"><span class=\"close\">&times;</span><p>"+
-      "Oops.. try again"+"</p></div>";
-      modal.style.display="block";
+      if (response.status == 422) {
+        modal.innerHTML = "<div class=\"modal-content\"><span class=\"close\">&times;</span><p>" +
+          "Oops.. try again" + "</p></div>";
+        modal.style.display = "block";
       }
     })
     .then(result => {
@@ -141,23 +130,25 @@ function sendData(ew) {
       // button.innerHTML='sing up';
       //  console.log(result+"  yes me");
     })
-    .catch(error => console.log('error', error+"  no me"));
+    .catch(error => console.log('error', error + "  no me"));
 }
 
 /* Function to POST data */
-const postUser = async (url = '', data = {}) => {
-  const res = await fetch(url, {
-      method: 'POST',
-      credentials: 'same-origin',
-      headers: {
-          'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+const postUser = async (data={}) => {
+  const res = await fetch("https://e-commerce-04-2022.herokuapp.com/api/user/signup",
+     {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data), // body data type must match "Content-Type" header   
   });
   try {
-      const clintnewdata = await res.json();
-      return clintnewdata;
+    const clintnewdata = await res.json();
+    console.log(clintnewdata);
+    return clintnewdata;
   } catch (error) {
-      console.log('error');
+    console.log('error');
   }
 }

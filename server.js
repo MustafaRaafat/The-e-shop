@@ -45,8 +45,3 @@ app.post('/singup', function (req, res) {
     ss("j");
 })
 
-
-/*function POST to Add new product */
-function ss(s) {
-   
-}
