@@ -2,7 +2,17 @@ let productList = ["hh", "gg", "uu", "rr", "rr"]; //dummy data
 let addetToCart = [];
 const productlength = document.querySelector('#ProductNum');
 const ProductGrid = document.querySelector('.pro');
+const sidebar=document.getElementById("myTopnav");
+const supportEmail=document.getElementById("supportEmail");
+const supportSubject=document.getElementById("supportSubject");
+const supportMessage=document.getElementById("supportMessage");
 
+
+/*Function to Sidebar/menu*/
+sidebar.innerHTML="<a href=\"#Home\" class=\"active\">Home</a><a href=\"login.html\">Login</a>"+
+"<a href=\"#Product\">Product</a><a href=\"#footer\">footer</a><a href=\"#Subscribe\">Subscribe </a>"+
+"<a href=\"fqa.html\">FQA</a><a href=\"javascript:void(0)\" onclick=\"document.getElementById('support').style.display='block'\">"+
+"Support</a><a href=\"admin/index.html\">Admin</a>";
 
 /* Function to POST data */
 const postCart = async (url = '', data = {}) => {
@@ -79,7 +89,35 @@ function addNewItem() {
 }
 
 
+// function to send support
+const sendSupportToAPI = async (data = {}) => {
+  const res = await fetch("https://e-commerce-04-2022.herokuapp.com/api/user/support", {
+    method: 'POST',
+    credentials: 'same-origin',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  try {
+    const clintnewdata = await res.json();
+    console.log('return');
+    console.log(clintnewdata);
+    return clintnewdata;
+  } catch (error) {
+    console.log('error');
+  }
+}
+function sendSupport() {
+  let data={email:supportEmail.value,subject:supportSubject.value,
+    message:supportMessage.value}
+    console.log(data);
+    sendSupportToAPI(data);
+}
 
+
+
+/* image slider */
 let slideIndex = 1;
 showSlides(slideIndex);
 
