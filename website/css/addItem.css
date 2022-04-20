@@ -78,3 +78,7 @@ body {
 #price {
     min-height: 30px;
 }
+#imagepreview{
+    width: 100px;
+    height: 100px;
+}

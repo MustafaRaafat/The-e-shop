@@ -40,18 +40,23 @@
             </div>
             <div class="form-control" style="height: 50%;
             min-width: 70%;">
-
+                <img id="imagepreview" src="" />
             </div>
             <div>
-                <input type="file" class="form-control" id="imageupload" name="images" accept="image/*" multiple>
+
+                <label for="img">Select images:</label>
+            </div>
+            <div>
+
+                <input type="file" class="form-control" id="imageupload" name="images" accept="image/*" multiple
+                    onchange="showPreview(event);">
             </div>
 
 
         </div>
         <div class="buttom">
             <div>
-                <button type="button" id="submit" name="submit">Cancel</button>
-                <button type="button" id="submit" name="submit">Update</button>
+                <button type="button" onclick="update()" id="submit" name="submit">Update</button>
             </div>
         </div>
     </div>
