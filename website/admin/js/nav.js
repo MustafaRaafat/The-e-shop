@@ -5,10 +5,16 @@ const sideBar = document.querySelector(".add-hide");
 const toggleButton = document.querySelector(".toggle-icon");
 // Main Right
 const mainRight = document.querySelector(".main-right");
+// Search Icon Right
+const searchIconRight = document.querySelector(".nav-top .right .search-icon-right i");
+// Show Input Search
+const showInputSearch = document.querySelector(".nav-top .left .form-container");
 // Nav Bar Account
 const account = document.querySelector(".nav-top .right .account");
 // Nav Bar List Account
 const listAccount = document.querySelector(".nav-top .right .list-account");
+// Form Nav Bar Search
+const searchForm = document.querySelector(".nav-top .left .form");
 // Input Nav Bar Search
 const searchNav = document.querySelector(".nav-top .left .form input");
 // Search Div
@@ -23,6 +29,56 @@ const menuPages = document.querySelectorAll(".nav-left .nav-title ul");
 const menuContainer = document.querySelector(".simplebar-content-wrapper");
 // Meida Quaries
 const max992 = window.matchMedia("(max-width: 992px)");
+
+
+
+// search()
+const search = () => {
+  const searchBox = document.getElementById("search-item").value.toUpperCase();
+  const storeitems = document.getElementById("product-list");
+  const storeArr = Array.from(storeitems);
+  // console.log(storeArr);
+  const product = document.querySelectorAll(".product");
+  const pname = document.getElementsByTagName('h2');
+  // console.log(pnameArr[0]);
+  for(const name of pname) {
+    console.log(name)
+    // console.log(name.parentElement)
+    // let match = product[name];
+    // if(searchBox) {
+    //   // console.log(searchBox)
+    //   if(name.innerHTML.toUpperCase().includes(searchBox)) {
+    //     // storeitems.innerHTML = name.parentElement.innerHTML;
+    //     console.log(name.parentElement.innerHTML)
+        
+    //   }else {
+    //     console.log(storeitems.innerHTML)
+    // //   storeitems.innerHTML;
+    // //   // name.style.display = "";
+    // }
+    //   // name.style.display = "";
+
+    // }
+    // console.log(storeArr)
+    // name.innerHTML.toUpperCase().includes(searchBox) ? storeitems.appendChild(name) : storeitems;
+    // console.log(name.innerHTML.toUpperCase().includes(searchBox) ? name : "")
+    // if(match) {
+    //   let textValue = match.textContent || match.innerHTML;
+    //   if(textValue.toUpperCase().indexOf(searchBox) > -1) {
+    //     product[name].style.display = "";
+    //   }else {
+    //   product[name].style.display = "none";
+    // }
+  }
+  // console.log(searchBox);
+  // console.log(storeitems);
+  // console.log(product);
+  // console.log(pname);
+}
+
+
+
+
 
 // Stop Propagation
 function stopPropagation(i) {
@@ -51,6 +107,59 @@ function toggleList(e, i) {
 
 // Toggle List Account
 toggleList(account, listAccount);
+
+// Search Nav
+function openSearchDivOnFocus() {
+  searchNav.addEventListener("focus", () => {
+    searchDiv.style.display = "flex";
+  });
+}
+openSearchDivOnFocus();
+
+document.addEventListener("click", (e) => {
+  if(e.target !== searchNav
+    && e.target !== searchDiv
+    && e.target !== searchIconRight) {
+      searchDiv.style.display = "none";
+  }
+  });
+
+// Stop Propagation On Search Div
+  stopPropagation(searchDiv)
+
+// Toggle Input Search
+function showSearchInput() {
+  searchIconRight.addEventListener("click", () => {
+    showInputSearch.classList.add("show");
+    searchNav.focus();
+  })
+}
+showSearchInput();
+
+// Hide Search Input When Press Escape
+function escapeToHideSearchInput() {
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape"
+        && showInputSearch.className.includes("show")) {
+          showInputSearch.classList.remove("show");
+      }
+    });
+}
+escapeToHideSearchInput();
+
+// Hide Search Input When Click On Document
+function clickToHideSearchInput() {
+  window.addEventListener("click", (e) => {
+    if(e.target !== searchIconRight
+      && e.target !== searchForm) {
+        
+        showInputSearch.classList.remove("show");
+    }
+    });
+    // Stop Propagation On Menu Container
+    stopPropagation(searchForm)
+  }
+  clickToHideSearchInput();
 
 // Hide Sidebar When Window Resize
 window.addEventListener("resize", () => {
@@ -115,18 +224,3 @@ function clickToHideSideBar() {
   }
   clickToHideSideBar();
 
-// Search Nav
-  searchNav.addEventListener("focus", () => {
-    searchDiv.style.display = "flex";
-  });
-
-  document.addEventListener("click", (e) => {
-    if(e.target !== searchNav
-      && e.target !== searchDiv) {
-        
-        searchDiv.style.display = "none";
-    }
-    });
-
-  // Stop Propagation On Search Div
-    stopPropagation(searchDiv)
