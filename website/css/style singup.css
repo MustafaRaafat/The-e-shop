@@ -28,7 +28,7 @@ body {
     font-size: 1.5rem;
     border-radius: 4px;
     color:rgb(255, 255, 255);
-    background-color: rgb(150, 0, 0);
+    background-color: #ffd333;
 }
 .form--input{
   display: block;
@@ -44,7 +44,7 @@ body {
     margin-bottom: 10px;
 }
 .form--input:focus {
-    border-color: red;
+    border-color: #ffd333;
     background: #fdfbfb;
 }
 .form--button{
@@ -63,7 +63,7 @@ body {
 
 }
 .form--button:hover {
-    background: #ff0000da;
+    background: #ffd333;
 }
 .form__button:active {
     transform: scale(0.98);
@@ -73,10 +73,10 @@ body {
 
 }
 a{
-    border: 5px solid rgb(150, 0, 0);
+    border: 5px solid #ffd333;
     border-radius: 10px;
     color:rgb(255, 255, 255);
-    background-color: rgb(150, 0, 0);
+    background-color: #ffd333;
     text-decoration: none;
 }
 #as:hover {
@@ -84,7 +84,7 @@ a{
 }
 .form--input-error-massage{
     margin: 3px 50px 3px 25px;
-    background-color: red;
+    background-color: #ffd333;
     text-align: center;
     color:rgb(255, 255, 255);
 

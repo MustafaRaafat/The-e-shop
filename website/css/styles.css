@@ -5,7 +5,8 @@
 body {
   margin: 0
 }
-.logo{
+
+.logo {
   height: 60px;
   position: fixed;
   top: 0;
@@ -28,7 +29,7 @@ img {
 
 /* Slideshow container */
 .slideshow-container {
-  
+
   position: relative;
   margin: auto;
 }
@@ -64,23 +65,23 @@ img {
 
 /* Caption text */
 .text {
-  color: #f2f2f2;
+  /* color: #f2f2f2;
   font-size: 15px;
   padding: 8px 12px;
   position: absolute;
   bottom: 8px;
   width: 100%;
-  text-align: center;
+  text-align: center; */
 }
 
 /* Number text (1/3 etc) */
-.numbertext {
+/* .numbertext {
   color: #f2f2f2;
   font-size: 12px;
   padding: 8px 12px;
   position: absolute;
   top: 0;
-}
+} */
 
 /* The dots/bullets/indicators */
 .dot {
@@ -134,7 +135,7 @@ img {
   left: 0;
   overflow: hidden;
   margin-top: 60px;
-  background-color:#333;
+  background-color: #333;
 }
 
 .sidebar a {
@@ -161,9 +162,7 @@ img {
 }
 
 @media screen and (max-width: 800px) {
-  .sidebar a:not(:first-child) {
-    
-  }
+  .sidebar a:not(:first-child) {}
 
   .sidebar a.icon {
     float: right;
@@ -192,12 +191,16 @@ img {
 .main {
   margin-left: 200px;
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
 }
+
 .header {
   /* height: 150px; */
   grid-area: top;
 }
-.pro{
+
+.pro {
   padding-left: 20px;
   /* display: flex;
   flex-direction: column;
