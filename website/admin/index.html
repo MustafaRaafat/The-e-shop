@@ -195,19 +195,26 @@
         <div class="left col-8">
           <!-- Icon -->
           <i class='fas fa-bars toggle-icon'></i>
-          <div class="form">
-            <form>
-              <input type="search"
-                      placeholder="Search"
-                      aria-label="Search">
-            </form>
-            <div class="search-div">
-              <h4>Start typing to search for</h4>
-              <p>Products, orders, customers, actions, etc.</p>
+          <div class="form-container">
+            <div class="form">
+              <form>
+                <input type="text"
+                        name=""
+                        id="search-item"
+                        placeholder="Search Products"
+                        onkeyup="search()">
+              </form>
+              <div class="search-div" id="product-list">
+                <h4>Start typing to search for</h4>
+                <p>Products, orders, customers, actions, etc.</p>
+              </div>
             </div>
           </div>
         </div>
         <div class="right w-100 col-4">
+          <span class="search-icon-right">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
           <div>
             <div class="account">
               <img src="./images/profile.jpg"
@@ -233,6 +240,28 @@
       <div class="main">
         <div class="container">
           <div class="page">
+            <div id="products">
+              <div class="product">
+                <h2>Mahmoud Easa</h2>
+            </div>
+            <div class="product">
+              <h2>Ahmed Easa</h2>
+            </div>
+            <div class="product">
+              <h2>Alaa Easa</h2>
+            </div>
+            <div class="product">
+              <h2>Ali Easa</h2>
+            </div>
+            <div class="product">
+              <h2>Osama Easa</h2>
+            </div>
+          </div>
+          
+
+
+
+
             Dashboard Lorem ipsum dolor sit amet consectetur,
             adipisicing elit. Commodi neque tempore nisi,
             facilis saepe fugiat eos autem praesentium
@@ -497,7 +526,6 @@
     </div>
   </div>
   <!-- End Main Section -->
-
 
 
   <!-- Jquery For Bootstrap -->

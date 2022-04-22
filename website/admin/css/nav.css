@@ -209,7 +209,8 @@
   width: 100%;
 }
 
-.nav-top .left .form,
+.nav-top .left .form-container,
+.nav-top .left .form-container .form,
 .nav-top .left .form form {
   width: 100%;
   position: relative;
@@ -251,6 +252,11 @@
   border: 1px solid #636B70;
 }
 
+.nav-top .left .form .search-div p {
+  color: #858C93;
+  font-size: 0.9rem;
+}
+
 .nav-top .left .form input {
   background-color: #ebedf0;
   border-radius: 0;
@@ -285,6 +291,10 @@
           justify-content: flex-end;
 }
 
+.nav-top .right .search-icon-right {
+  display: none;
+}
+
 .nav-top .right,
 .nav-top .right .account {
   display: -webkit-box;
@@ -295,35 +305,8 @@
           align-items: center;
 }
 
-.nav-top .right .img {
-  width: 3rem;
-}
-
 .nav-top .right i {
   font-size: 1.1rem;
-  position: relative;
-}
-
-.nav-top .right i::after {
-  content: "3";
-  font-size: 0.5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: absolute;
-  width: 1rem;
-  height: 1rem;
-  font-weight: 900;
-  background-color: #ffd333;
-  border-radius: 50%;
-  top: -2px;
-  right: -2px;
 }
 
 .nav-top .right .account {
@@ -373,7 +356,6 @@
 }
 
 .nav-top .left .toggle-icon,
-.nav-top .right .img,
 .nav-top .right i {
   cursor: pointer;
   padding: 0.5rem;
@@ -382,13 +364,11 @@
 }
 
 .nav-top .left .toggle-icon,
-.nav-top .right .img,
 .nav-top .right i {
   border-radius: 3px;
 }
 
 .nav-top .left .toggle-icon:hover,
-.nav-top .right .img:hover,
 .nav-top .right i:hover,
 .nav-top .right .account:hover {
   background-color: #ebedf0;
@@ -428,5 +408,40 @@
 
   .nav-top .right .account {
     width: 60px;
+  }
+
+  .nav-top .left .form .search-div h4 {
+    font-size: 1rem;
+  }
+
+  .nav-top .left .form .search-div p {
+    font-size: 0.7rem;
+  }
+}
+@media (max-width: 600px) {
+  .nav-top .left .form-container {
+    display: none;
+  }
+
+  .nav-top .left .form-container.show {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 100vw;
+    height: 100vh;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999999999;
+  }
+
+  .nav-top .left .form-container.show .form,
+.nav-top .left .form-container.show .form input,
+.nav-top .left .form .search-div {
+    width: 99%;
+  }
+
+  .nav-top .right .search-icon-right {
+    display: block;
   }
 }
