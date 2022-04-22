@@ -1,42 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Shop login</title>
     <link rel="stylesheet" href="css/style login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
     <div class="container">
-        <form  class="form--body col" id="form">
+        <form class="form--body col" id="form">
             <p class="form--text">Member Login</p>
 
-            <p  class="form--massage form--error" id="email-error"> </p>
+            <p class="form--massage form--error" id="email-error"> </p>
 
             <input type="text" class="form--input" id="email" autofocus required placeholder="Email Address">
-            <input type="password" id="userpassword"  class="form--input1 myInput"   autofocus  placeholder="Password">
+            <input type="password" id="userpassword" class="form--input1 myInput" autofocus placeholder="Password">
 
-            <p  class="form--massage form--error" id="password-error"> </p>
+            <p class="form--massage form--error" id="password-error"> </p>
 
 
             <label for="asd">
-                <input type="checkbox" onclick="showPassowrd()" id="asd" >Show Password
-                  </label>  
+                <input type="checkbox" onclick="showPassowrd()" id="asd">Show Password
+            </label>
 
             <button class="form--button" id="button" type="submit"> LOGIN </button>
 
             <label for="as">
-                <input type="checkbox" id="as"> Remember me 
+                <input type="checkbox" id="as"> Remember me
             </label>
             <a href="forgetpassword.html" class="form--forget"> Forget password?</a>
 
-                <p class="form--dont">Don't have an account? </p>
-            <a href="singup.html"class="asd" > <p class="form--createaccount">Create Account</p> </a>
+            <p class="form--dont">Don't have an account? </p>
+            <a href="singup.html" class="asd">
+                <p class="form--createaccount">Create Account</p>
+            </a>
 
         </form>
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span id="close" class="close">&times;</span>
+                <p id="modelText">Some text in the Modal..</p>
+            </div>
+
+        </div>
     </div>
     <script src="js/login.js"></script>
 
 </body>
+
 </html>
