@@ -51,7 +51,7 @@ loginform.addEventListener('submit', (e) => {
     } else {
       e.preventDefault();
       let data = { email: email.value, password: userpassword.value };
-      LogInUser(data);
+      senddata(data);
     }
   } else {
     e.preventDefault()
@@ -62,9 +62,8 @@ loginform.addEventListener('submit', (e) => {
 
 
 })
-
-const sendDataToServer = async (data = {}) => {
-  const res = await fetch('/home', {
+const senddata=async(data={})=>{
+  const res = await fetch('/login', {
     method: 'POST',
     credentials: 'same-origin',
     headers: {
@@ -74,36 +73,13 @@ const sendDataToServer = async (data = {}) => {
   });
   try {
     const clintnewdata = await res.json();
-    //console.log(clintnewdata);
+    // console.log(clintnewdata);
     if (clintnewdata.message=='done') {
       window.location.replace('/index.html');
-    }
-    return clintnewdata;
-  } catch (error) {
-    console.log('error');
-  }
-}
-
-// function to login
-const LogInUser = async (data = {}) => {
-  const res = await fetch("https://e-commerce-04-2022.herokuapp.com/api/user/login",
-    {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      credentials: 'same-origin', // include, *same-origin, omit
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data), // body data type must match "Content-Type" header   
-    });
-  try {
-    const clintnewdata = await res.json();
-    // console.log(clintnewdata);
-    if (clintnewdata.userId == null || clintnewdata.userId == '') {
-      modal.style.display = 'block';
-      modelText.innerText = clintnewdata.message;
-      button.innerHTML = "Login";
-    } else {
-      sendDataToServer(clintnewdata);
+    }else{
+        modal.style.display = 'block';
+        modelText.innerText = clintnewdata.error;
+        button.innerHTML = "Login";
     }
     return clintnewdata;
   } catch (error) {

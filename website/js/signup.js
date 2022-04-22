@@ -14,6 +14,7 @@ function showPassowrd() {
   }
 }
 
+const modelText=document.getElementById('modelText');
 const button = document.querySelector('button');
 const modal = document.getElementById("myModal");
 const span = document.getElementsByClassName("close")[0];
@@ -134,19 +135,29 @@ function sendData(ew) {
 }
 
 /* Function to POST data */
-const postUser = async (data={}) => {
-  const res = await fetch("https://e-commerce-04-2022.herokuapp.com/api/user/signup",
-     {
-    method: 'POST', // *GET, POST, PUT, DELETE, etc.
-    credentials: 'same-origin', // include, *same-origin, omit
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data), // body data type must match "Content-Type" header   
-  });
+const postUser = async (data = {}) => {
+  const res = await fetch("/signup",
+    {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      credentials: 'same-origin', // include, *same-origin, omit
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data), // body data type must match "Content-Type" header   
+    });
   try {
     const clintnewdata = await res.json();
-    console.log(clintnewdata);
+    if (clintnewdata.message == 'done') {
+      setTimeout(() => {
+        window.location.replace('/login.html');
+      }, 8000);
+      modal.style.display = 'block';
+      modelText.innerText = 'you will be redirected to login page to login in 3 Sec';
+    } else {
+      modal.style.display = 'block';
+      modelText.innerText = clintnewdata.error;
+      button.innerHTML = "sign up";
+    }
     return clintnewdata;
   } catch (error) {
     console.log('error');
